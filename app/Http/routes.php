@@ -18,6 +18,9 @@ Route::group(['middleware' => ['web']], function (){
 	    return view('welcome');
 	});
 	
+});
 
-
+Route::group(['prefix' => 'api'], function()
+{
+	Route::get('search/list', 'SearchController@getList');
 });
