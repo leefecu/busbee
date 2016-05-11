@@ -9,9 +9,9 @@ use App\Http\Requests;
 class SearchController extends Controller
 {
     
-    public function getList(){
+    public function getList($param){
         $arr_result = array();
-        $param = "277";
+        //$param = "277";
         $api_key = "5eede808-9821-4fce-beb6-cd5cb5a91e11";
         $stop_Service_url = 'http://api.at.govt.nz/v1/gtfs/stops/search/'.$param.'?api_key='.$api_key;
         $bus_Service_url = 'http://api.at.govt.nz/v1/gtfs/routes/routeShortName/'.$param.'?api_key='.$api_key;
@@ -29,10 +29,6 @@ class SearchController extends Controller
 
         foreach ($bus_response as $item) {
 
-            /*echo "<br><br>";
-            echo $item['route_id']."<br>";
-            echo $item['route_short_name']."<br>";
-            echo $item['route_long_name']."<br>";*/
             $arr = array("id"=>$item['route_id'], "num"=>$item['route_short_name'], "name"=>$item['route_long_name'], "type"=>"B");
             array_push($arr_result, $arr);
         }

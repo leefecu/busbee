@@ -22,5 +22,5 @@ Route::group(['middleware' => ['web']], function (){
 
 Route::group(['prefix' => 'api'], function()
 {
-	Route::get('search/list', 'SearchController@getList');
+	Route::get('search/list/{id}', 'SearchController@getList');
 });
