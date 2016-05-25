@@ -13,7 +13,6 @@
 
 Route::group(['middleware' => ['web']], function (){
 
-
 	Route::get('/', function () {
 	    return view('welcome');
 	});
@@ -23,4 +22,6 @@ Route::group(['middleware' => ['web']], function (){
 Route::group(['prefix' => 'api'], function()
 {
 	Route::get('search/list/{id}', 'SearchController@getList');
+	Route::get('search/timetable/{id}', 'SearchController@getTimeTable');
 });
+
