@@ -21,7 +21,8 @@ Route::group(['middleware' => ['web']], function (){
 
 Route::group(['prefix' => 'api'], function()
 {
-	Route::get('search/list/{id}', 'SearchController@getList');
-	Route::get('search/timetable/{id}', 'SearchController@getTimeTable');
+	Route::get('search/list/{id}', array('middleware' => 'cors', 'uses' => 'SearchController@getList'));
+	Route::get('search/timetable/{id}', array('middleware' => 'cors', 'uses' => 'SearchController@getTimeTable'));
+
 });
 

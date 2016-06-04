@@ -34,8 +34,7 @@ class SearchController extends Controller
             array_push($searchListResult , $arr);
         }
 
-        echo count($searchListResult );
-        var_dump($searchListResult );
+        return $searchListResult;
 
     }
 
@@ -44,6 +43,8 @@ class SearchController extends Controller
         $searchListResult  = array();
         //jimin : a67a9662-fa06-464a-a8ab-ba1598dd4523
         //mine : 5eede808-9821-4fce-beb6-cd5cb5a91e11
+        //ken : 03e4fe7b-8f40-4183-aded-d1e8a7b95b9e
+        //EJ : f9780d34-cb88-4c39-91fd-f604316b591e  
         $api_key = "a67a9662-fa06-464a-a8ab-ba1598dd4523";
         $stop_Service_url = 'http://api.at.govt.nz/v1/gtfs/stops/stopId/'.$param.'?api_key='.$api_key;
         $timeTable_Service_url = 'http://api.at.govt.nz/v1/gtfs/stopTimes/stopId/'.$param.'?api_key='.$api_key;
@@ -118,9 +119,8 @@ class SearchController extends Controller
             }
         }
 
-
-        echo count($searchListResult );
-        var_dump($searchListResult );
+        return $searchListResult;
+        
     }
     
 }
