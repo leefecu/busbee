@@ -11,6 +11,18 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::group(['middleware' => ['web']], function (){
+
+	Route::get('/', function () {
+	    return view('welcome');
+	});
+	
 });
+
+Route::group(['prefix' => 'api'], function()
+{
+	Route::get('search/list/{id}', array('middleware' => 'cors', 'uses' => 'SearchController@getList'));
+	Route::get('search/timetable/{id}', array('middleware' => 'cors', 'uses' => 'SearchController@getTimeTable'));
+
+});
+
