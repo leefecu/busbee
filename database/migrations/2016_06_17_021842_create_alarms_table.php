@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateStopsTable extends Migration
+class CreateAlarmsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,12 +12,13 @@ class CreateStopsTable extends Migration
      */
     public function up()
     {
-        Schema::create('stops', function (Blueprint $table) {
+        Schema::create('alarms', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('user_id');
             $table->string('stop_id');
-            $table->string('stop_name');
-            $table->('stop_lat');
-            $table->('stop_lon');
-            $table->string('stop_code');
+            $table->string('route_id');
+            $table->string('short_name');
+            $table->string('on_off');
             $table->timestamps();
         });
     }
@@ -29,6 +30,6 @@ class CreateStopsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('stops');
+        Schema::drop('alarms');
     }
 }

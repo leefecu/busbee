@@ -5,6 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\Http\Controllers\Controller;
+
+use App\Models\Stop;
+
+use Input;
+use Resirect;
 
 class StopController extends Controller
 {
@@ -36,7 +42,7 @@ class StopController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // 
     }
 
     /**
@@ -47,7 +53,16 @@ class StopController extends Controller
      */
     public function show($id)
     {
-        //
+        //Search Stop Details
+        try{
+
+            $stop = Stop::find($id);
+
+            return $stop;
+
+        }catch(\Exception $e){
+            return $e->getMessage();
+        }
     }
 
     /**

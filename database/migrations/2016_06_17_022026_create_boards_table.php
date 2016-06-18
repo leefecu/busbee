@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAlarmTable extends Migration
+class CreateBoardsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,12 +12,13 @@ class CreateAlarmTable extends Migration
      */
     public function up()
     {
-        Schema::create('alarm', function (Blueprint $table) {
+        Schema::create('boards', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('user_id');
-            $table->string('stop_id');
-            $table->string('route_id');
-            $table->string('on_off');
+            $table->string('code');
+            $table->string('title');
+            $table->string('content');
+            $table->string('writer');
+            $table->string('passwd');
             $table->timestamps();
         });
     }
@@ -29,6 +30,6 @@ class CreateAlarmTable extends Migration
      */
     public function down()
     {
-        Schema::drop('alarm');
+        Schema::drop('boards');
     }
 }
